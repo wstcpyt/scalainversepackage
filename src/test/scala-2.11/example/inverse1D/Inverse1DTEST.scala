@@ -14,5 +14,6 @@ class Inverse1DTEST extends FunSuite {
       protected def initX(matrixSize: Int): DenseVector[Double] = DenseVector.zeros[Double](matrixSize)
     }
     assert(new Inverse1Dtest(5).a.size == 25)
+    assert(new Inverse1Dtest(5).x.size == 5)
   }
 }
