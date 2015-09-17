@@ -8,6 +8,10 @@ import breeze.linalg.{DenseVector, DenseMatrix}
 abstract class Inverse1D(matrixSize:Int){
   val a = initA(matrixSize)
   val x = initX(matrixSize)
+  val b = calculateB()
   protected def initA(matrixSize: Int): DenseMatrix[Double]
   protected def initX(matrixSize: Int): DenseVector[Double]
+  protected def calculateB():DenseVector[Double] = {
+    a * x
+  }
 }
