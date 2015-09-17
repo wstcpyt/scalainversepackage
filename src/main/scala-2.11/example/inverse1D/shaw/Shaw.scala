@@ -12,9 +12,7 @@ class Shaw(matrixSize: Int, bError:Vector[Double]) extends Inverse1D(matrixSize:
   def initA(): DenseMatrix[Double] = {
     initAwithF(matrixSize, -PI / 2, PI, -PI / 2, PI) { (s, t) => {
       val firstTerm = pow(cos(s) + cos(t), 2.0)
-      val secondTerm =
-        if (sin(s) + sin(t) != 0) pow(sin(PI * (sin(s) + sin(t))) / (PI * (sin(s) + sin(t))), 2.0)
-        else 1
+      val secondTerm = if (sin(s) + sin(t) != 0) pow(sin(PI * (sin(s) + sin(t))) / (PI * (sin(s) + sin(t))), 2.0) else 1
       firstTerm + secondTerm
     }
     }

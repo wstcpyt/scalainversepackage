@@ -12,6 +12,8 @@ abstract class Inverse1D(matrixSize:Int, bError: Vector[Double]){
   protected def initA(): DenseMatrix[Double]
   protected def initX(): DenseVector[Double]
   protected def calculateB():DenseVector[Double] = {
-    a * x
+    val b = a * x
+    bError.zipWithIndex.foreach{case(z, i) => b(i) += z}
+    b
   }
 }

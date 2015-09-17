@@ -12,9 +12,10 @@ class Inverse1DTEST extends FunSuite {
       protected def initA(): DenseMatrix[Double] = DenseMatrix.zeros[Double](matrixSize, matrixSize)
       protected def initX(): DenseVector[Double] = DenseVector.zeros[Double](matrixSize)
     }
-    val inverse1Dtest = new Inverse1Dtest(5, Vector(0, 0, 0))
+    val inverse1Dtest = new Inverse1Dtest(5, Vector(1, 2, 2))
     assert(inverse1Dtest.a.size == 25)
     assert(inverse1Dtest.x.size == 5)
     assert(inverse1Dtest.b.size == 5)
+    List(1.0, 2.0, 2.0, 0.0, 0.0).zipWithIndex.foreach{case(z, i) => assert(inverse1Dtest.b(i) == z)}
   }
 }
