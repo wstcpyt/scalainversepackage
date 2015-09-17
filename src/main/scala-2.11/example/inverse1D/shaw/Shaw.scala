@@ -9,7 +9,7 @@ import breeze.linalg.{DenseVector, DenseMatrix}
 import example.inverse1D.{Inverse1D, A, X}
 
 class Shaw(matrixSize: Int, bError:Vector[Double]) extends Inverse1D(matrixSize: Int, bError:Vector[Double]) with A with X {
-  def initA(matrixSize: Int): DenseMatrix[Double] = {
+  def initA(): DenseMatrix[Double] = {
     initAwithF(matrixSize, -PI / 2, PI, -PI / 2, PI) { (s, t) => {
       val firstTerm = pow(cos(s) + cos(t), 2.0)
       val secondTerm =
@@ -20,7 +20,7 @@ class Shaw(matrixSize: Int, bError:Vector[Double]) extends Inverse1D(matrixSize:
     }
   }
 
-  def initX(matrixSize: Int): DenseVector[Double] = {
+  def initX(): DenseVector[Double] = {
     initXwithF(matrixSize, -PI / 2, PI) {t => 2 * exp(-6 * pow(t - 0.8, 2.0)) + exp(-2 * pow(t + 0.5, 2.0))}
   }
 }

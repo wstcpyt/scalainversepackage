@@ -9,8 +9,8 @@ import org.scalatest.FunSuite
 class Inverse1DTEST extends FunSuite {
   test("Inverse1DClass") {
     class Inverse1Dtest(matrixSize: Int, bError:Vector[Double]) extends Inverse1D(matrixSize: Int, bError:Vector[Double]){
-      protected def initA(matrixSize: Int): DenseMatrix[Double] = DenseMatrix.zeros[Double](matrixSize, matrixSize)
-      protected def initX(matrixSize: Int): DenseVector[Double] = DenseVector.zeros[Double](matrixSize)
+      protected def initA(): DenseMatrix[Double] = DenseMatrix.zeros[Double](matrixSize, matrixSize)
+      protected def initX(): DenseVector[Double] = DenseVector.zeros[Double](matrixSize)
     }
     val inverse1Dtest = new Inverse1Dtest(5, Vector(0, 0, 0))
     assert(inverse1Dtest.a.size == 25)
