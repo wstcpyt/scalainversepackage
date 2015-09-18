@@ -1,7 +1,10 @@
-package example.inverse1D
+package example.inverse1D.test
+
 /**
  * Created by yutongpang on 9/16/15.
  */
+
+import example.inverse1D.A
 import org.scalatest.FunSuite
 class ATEST extends FunSuite with A{
   test("initAwithF") {

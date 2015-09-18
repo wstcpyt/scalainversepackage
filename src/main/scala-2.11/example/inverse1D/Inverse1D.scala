@@ -5,15 +5,19 @@ import breeze.linalg.{DenseVector, DenseMatrix}
 /**
  * Created by yutongpang on 9/15/15.
  */
-abstract class Inverse1D(matrixSize:Int, bError: Vector[Double]){
-  val a = initA()
-  val x = initX()
-  val b = calculateB()
+abstract class Inverse1D(matrixLength:Int, bError: Vector[Double]){
+  require(bError.size <= matrixLength, "bError Vector size must be equal or less than matrixSize")
+  private val _a = initA()
+  private val _x = initX()
+  private val _b = calculateB()
+  def a = _a.copy
+  def x = _x.copy
+  def b = _b.copy
   protected def initA(): DenseMatrix[Double]
   protected def initX(): DenseVector[Double]
   protected def calculateB():DenseVector[Double] = {
-    val b = a * x
-    bError.zipWithIndex.foreach{case(z, i) => b(i) += z}
-    b
+    val btemp = _a * _x
+    bError.zipWithIndex.foreach{case(z, i) => btemp(i) += z}
+    btemp
   }
 }
