@@ -1,4 +1,4 @@
-package regularization
+package com.infomagnetic.regularization
 
 import breeze.linalg.{norm, DenseMatrix, DenseVector}
 import math._
@@ -9,19 +9,19 @@ import math._
 object CGLS {
   def calculateX(a:DenseMatrix[Double], b:DenseVector[Double], k:Int):DenseVector[Double] = {
     val matrixLength = b.size
-    var x = DenseVector.zeros[Double](matrixLength)
-    var r = b - a * x
+    var _x = DenseVector.zeros[Double](matrixLength)
+    var r = b - a * _x
     var d = a.t * r
     (0 until k).foreach{
       _ => {
         val alpha = pow(norm(a.t * r) / norm(a * d), 2.0)
-        x = x + d :*= alpha
+        _x = _x + (d :* alpha)
         val tempr = r
-        r = r - (a * d) :*= alpha
+        r = r - ((a * d) :* alpha)
         val beta = pow(norm(a.t * r) / norm(a.t * tempr) , 2.0)
-        d = a.t * r + d :*= beta
+        d = a.t * r + (d :* beta)
       }
     }
-    x
+    _x
   }
 }

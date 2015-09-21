@@ -1,4 +1,4 @@
-package example.inverse1D
+package com.infomagnetic.example.inverse1D
 
 import breeze.linalg.DenseVector
 

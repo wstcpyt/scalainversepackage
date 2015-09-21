@@ -1,7 +1,7 @@
-package example.inverse1D.test
+package com.infomagnetic.example.inverse1D.test
 
 import breeze.linalg.{DenseMatrix, DenseVector}
-import example.inverse1D.Inverse1D
+import com.infomagnetic.example.inverse1D.Inverse1D
 import org.scalatest.FunSuite
 
 /**

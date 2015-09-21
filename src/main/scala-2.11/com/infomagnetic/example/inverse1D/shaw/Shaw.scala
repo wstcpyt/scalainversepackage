@@ -1,4 +1,4 @@
-package example.inverse1D.shaw
+package com.infomagnetic.example.inverse1D.shaw
 
 /**
  * Created by yutongpang on 9/16/15.
@@ -6,7 +6,7 @@ package example.inverse1D.shaw
 
 import java.lang.Math._
 import breeze.linalg.{DenseVector, DenseMatrix}
-import example.inverse1D.{Inverse1D, A, X}
+import com.infomagnetic.example.inverse1D.{Inverse1D, A, X}
 
 class Shaw(matrixLength: Int, bError:Vector[Double]) extends Inverse1D(matrixLength: Int, bError:Vector[Double]) with A with X {
   def initA(): DenseMatrix[Double] = {
