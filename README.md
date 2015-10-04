@@ -1,29 +1,4 @@
-# README #
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+# Scala Inverse Package
+Inverse Package in Scala with unit test, which is used to solve ill-posed inverse problem (such as bar code scanning, image deblur). The package including: 
+* inverse1D: which is used for create discrete 1D first type Fredhom Inegral. 
+* Regularization: which have some common regularization method such as Truncate SVD, Tikhonov Regularization, CGLS.
