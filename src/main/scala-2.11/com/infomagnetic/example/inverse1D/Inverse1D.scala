@@ -3,7 +3,10 @@ package com.infomagnetic.example.inverse1D
 import breeze.linalg.{DenseVector, DenseMatrix}
 
 /**
- * Created by yutongpang on 9/15/15.
+ * One dimensional Inverse Problem Abstract Class
+ * @constructor Create a one dimensional inverse problem
+ * @param matrixLength discretization size
+ * @param bError bError vector which define the error of the b vector
  */
 abstract class Inverse1D(matrixLength:Int, bError: Vector[Double]){
   require(bError.size <= matrixLength, "bError Vector size must be equal or less than matrixSize")
@@ -15,7 +18,7 @@ abstract class Inverse1D(matrixLength:Int, bError: Vector[Double]){
   def b = _b.copy
   protected def initA(): DenseMatrix[Double]
   protected def initX(): DenseVector[Double]
-  protected def calculateB():DenseVector[Double] = {
+  private def calculateB():DenseVector[Double] = {
     val btemp = _a * _x
     bError.zipWithIndex.foreach{case(z, i) => btemp(i) += z}
     btemp

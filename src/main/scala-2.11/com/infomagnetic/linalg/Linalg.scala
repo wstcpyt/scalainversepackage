@@ -6,14 +6,16 @@ import breeze.storage.Zero
 import scala.reflect.ClassTag
 
 /**
- * Created by yutongpang on 9/19/15.
+ * linear algebra package
  */
 object Linalg {
   /** Create Toeplitz matrix
-   * scala > Linalg.toeplitz(DenseVector[Double](1,2,3))
+    * {{{
+    * scala > Linalg.toeplitz(DenseVector[Double](1,2,3))
     * 1 2 3
     * 2 1 2
     * 3 2 1
+    * }}}
    * @param r DenseVector[Double] to create Toeplitz matrix
    * @return Toeplitz matrix:DenseMatrix[Double]
    */
@@ -28,11 +30,13 @@ object Linalg {
   }
 
   /** Creat non-symmetric Toeplitz matrix
-   * scala> Linalg.toeplitz(DenseVector[Double](1,2,3,4), DenseVector[Double](4,5,6))
+    * {{{
+    * scala> Linalg.toeplitz(DenseVector[Double](1,2,3,4), DenseVector[Double](4,5,6))
     * 1 5 6
     * 2 1 5
     * 3 2 1
     * 4 3 2
+    * }}}
    * @param c the fist column of Toeplitz matrix
    * @param r the fist row of Toeplitz matrix
    * @return non-symmetric Toeplitz matrix:DenseMatrix[Double]
