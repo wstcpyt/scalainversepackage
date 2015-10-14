@@ -2,9 +2,6 @@ package com.infomagnetic.example.inverse1D
 
 import breeze.linalg.{DenseVector, DenseMatrix}
 
-/**
- * Created by yutongpang on 9/15/15.
- */
 abstract class Inverse1D(matrixLength:Int, bError: Vector[Double]){
   require(bError.size <= matrixLength, "bError Vector size must be equal or less than matrixSize")
   private val _a = initA()
