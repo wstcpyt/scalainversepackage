@@ -1,8 +1,5 @@
 package com.infomagnetic.example.inverse1D.shaw
 
-/**
- * Created by yutongpang on 9/16/15.
- */
 
 import java.lang.Math._
 import breeze.linalg.{DenseVector, DenseMatrix}
