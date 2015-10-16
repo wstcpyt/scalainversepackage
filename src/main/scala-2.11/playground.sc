@@ -1,5 +1,10 @@
-Vector.fill(100)(0).zipWithIndex.map{t => t._2}
+case class People(age:Int)
 
-var a = Vector(1, 2, 3)
-a.updated(0, 2)
-a = a :+ 4
+val a = Array.ofDim[People](2, 2)
+a(0)(0) = new People(1)
+
+a(0)(0)
+
+var c = "Hello"
+c = c + "World"
+c

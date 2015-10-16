@@ -1,12 +1,12 @@
 package com.infomagnetic.CEA
 
+import com.infomagnetic.common.CommonTypedef._
+
 import scala.util.Random
 
 object CEAlgorithm {
-  type Population = Vector[Vector[Individual]]
   private val random = new Random()
-
-  def initPopulation(populationLength: Int, individualPropertiesSize: Int, randMin: Double, randMax: Double): Population = {
+  def initPopulation(populationLength: Int, individualPropertiesSize: Int, randMin: Double, randMax: Double):Population  = {
     Vector.fill(populationLength, populationLength)(0).map { row =>
       row.map { _ =>
         val newProperties = Vector.fill[Double](individualPropertiesSize)(0.0).map { _ =>
@@ -55,25 +55,23 @@ object CEAlgorithm {
       offSpring
     }
     //down offspring
-    else if (y + 1 < population.head.length) {
+    if (y + 1 < population.head.length) {
       val parentB = population(x)(y + 1)
       offSpring = offSpring :+ mate(parentA, parentB)
       offSpring
     }
     //left offspring
-    else if (x - 1 >= 0) {
+    if (x - 1 >= 0) {
       val parentB = population(x - 1)(y)
       offSpring = offSpring :+ mate(parentA, parentB)
       offSpring
     }
     //right offspring
-    else if (x + 1 < population.length) {
+    if (x + 1 < population.length) {
       val parentB = population(x + 1)(y)
       offSpring = offSpring :+ mate(parentA, parentB)
       offSpring
     }
-    else {
-      offSpring
-    }
+    offSpring
   }
 }

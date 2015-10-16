@@ -5,9 +5,6 @@ import com.infomagnetic.example.inverse1D.shaw.Shaw
 import org.scalatest.FunSuite
 import com.infomagnetic.regularization.CGLS
 
-/**
- * Created by ypang on 9/17/15.
- */
 class CGLSTEST extends FunSuite{
   test("CGLS") {
     val shaw = new Shaw(128, Vector(0, 0, 0))

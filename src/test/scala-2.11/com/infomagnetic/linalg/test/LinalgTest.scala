@@ -1,6 +1,7 @@
-package com.infomagnetic.linalg
+package com.infomagnetic.linalg.test
 
 import breeze.linalg.DenseMatrix
+import com.infomagnetic.linalg.Linalg
 import org.scalatest.FunSuite
 
 /**
