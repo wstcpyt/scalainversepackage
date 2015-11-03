@@ -6,7 +6,7 @@ name := "scalainversepackage"
 
 version := "1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.10.4"
 
 libraryDependencies  ++= Seq(
   // other dependencies here
@@ -20,16 +20,9 @@ libraryDependencies  ++= Seq(
   // It depends on LGPL code.
   "org.scalanlp" %% "breeze-viz" % "0.11.2",
   //scala test dependency
-  "org.scalatest" % "scalatest_2.11" % "2.2.4" % "test",
+  "org.scalatest" % "scalatest_2.10" % "2.1.3" % "test",
   //Apache spark
   "org.apache.spark" %% "spark-core" % "1.5.1" % "provided"
-)
-
-resolvers ++= Seq(
-  // other resolvers here
-  // if you want to use snapshot builds (currently 0.12-SNAPSHOT), use this.
-  "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/",
-  "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
 )
 
 

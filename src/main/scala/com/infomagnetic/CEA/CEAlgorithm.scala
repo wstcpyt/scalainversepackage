@@ -4,14 +4,13 @@ import com.infomagnetic.common.CommonTypedef._
 
 import scala.util.Random
 
-object CEAlgorithm {
+object  CEAlgorithm {
   private val random = new Random()
-  def initPopulation(populationLength: Int, individualPropertiesSize: Int, randMin: Double, randMax: Double):Population  = {
+  def initPopulation(populationLength: Int, individualPropertiesSize: Int, randMin: Double, randMax: Double, randBase:Int = 100):Population  = {
     Vector.fill(populationLength, populationLength)(0).map { row =>
       row.map { _ =>
         val newProperties = Vector.fill[Double](individualPropertiesSize)(0.0).map { _ =>
-          val randomTemp = random.nextDouble()
-          val randomValue = randMin + (randMax - randMin) * randomTemp
+          val randomValue = generateRandomNumber(randMin, randMax, randBase)
           randomValue
         }
         new Individual(newProperties, 0.0)
@@ -19,7 +18,7 @@ object CEAlgorithm {
     }
   }
 
-  def produceOffSpring(x: Int, y: Int, population: Population, randMin: Double, randMax: Double): Vector[Individual] = {
+  def produceOffSpring(x: Int, y: Int, population: Population, randMin: Double, randMax: Double, randBase:Int = 100): Vector[Individual] = {
     def mate(parentA: Individual, parentB: Individual): Individual = {
       val mutationRate = 0.1
       val propertiesSize = parentA.individualProperites.length
@@ -38,8 +37,7 @@ object CEAlgorithm {
       //mutate
       if (random.nextDouble() < mutationRate) {
         val mutatePosition = random.nextInt(propertiesSize)
-        val randomTemp = random.nextDouble()
-        val randomValue = randMin + (randMax - randMin) * randomTemp
+        val randomValue = generateRandomNumber(randMin, randMax, randBase)
         properties = properties.updated(mutatePosition, randomValue)
       }
       new Individual(properties, parentB.fitness)
@@ -73,5 +71,9 @@ object CEAlgorithm {
       offSpring
     }
     offSpring
+  }
+  def generateRandomNumber(randMin: Double, randMax: Double, randBase: Int) = {
+    val randomTemp = random.nextDouble()
+    randMin + (randMax - randMin) * randomTemp
   }
 }

@@ -2,9 +2,11 @@ package com.infomagnetic.CEA
 
 import com.infomagnetic.common.CommonTypedef._
 
+import scala.collection.immutable.IndexedSeq
+
 object SubPopulationList {
-  def generateList(population: Population, threadNumber: Int, populationLength: Int, populationLengthPerThread: Int) = {
-    val subPopulationList = 0 until threadNumber map{thread =>
+  def generateList(population: Population, threadNumber: Int, populationLength: Int, populationLengthPerThread: Int): List[SubPopulation] = {
+    val subPopulationList = (0 until threadNumber).toList map{thread =>
       if (thread == 0) {
         val subPopulation = Vector.fill(populationLength, populationLengthPerThread + 1)(0).zipWithIndex.map { row =>
           row._1.zipWithIndex.map { col => population(row._2)(col._2)}}
