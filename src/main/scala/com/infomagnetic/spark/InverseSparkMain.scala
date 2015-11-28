@@ -15,14 +15,14 @@ object InverseSparkMain {
   private val discretizationSize = 40
   private val random = new Random()
   private val loop = 1000
-  private val randMin = -0.05d
+  private val randMin = 0.0d
   private val randMax = 0.1d
   private val cglsIndex = 8
 
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("Inverse Problem")
     val sc = new SparkContext(conf)
-    val staticPopulation = CEAlgorithm.initPopulation(populationLength, 5, randMin, randMax)
+    val staticPopulation = CEAlgorithm.initPopulation(populationLength, 40, randMin, randMax)
     var subPopulationbList: List[SubPopulation] = SubPopulationList.generateList(staticPopulation, threadNumber, populationLength, populationLengthPerThread)
     0 until loop foreach{_ =>
       var subPopulationListRDD: RDD[SubPopulation] = sc.parallelize(subPopulationbList)
